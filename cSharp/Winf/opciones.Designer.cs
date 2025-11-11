@@ -28,20 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(opciones));
             pictureBox1 = new PictureBox();
             checkBox1 = new CheckBox();
-            trackBar1 = new TrackBar();
             button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)trackBar1).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
             // 
             pictureBox1.AccessibleRole = AccessibleRole.None;
             pictureBox1.Enabled = false;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Image = Properties.Resources.musica;
             pictureBox1.Location = new Point(-8, -11);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(815, 469);
@@ -63,16 +60,6 @@
             checkBox1.UseVisualStyleBackColor = true;
             checkBox1.CheckedChanged += checkBox1_CheckedChanged;
             // 
-            // trackBar1
-            // 
-            trackBar1.Location = new Point(284, 167);
-            trackBar1.Maximum = 100;
-            trackBar1.Name = "trackBar1";
-            trackBar1.Size = new Size(239, 45);
-            trackBar1.TabIndex = 2;
-            trackBar1.TickStyle = TickStyle.None;
-            trackBar1.Value = 100;
-            // 
             // button1
             // 
             button1.Location = new Point(12, 406);
@@ -88,7 +75,6 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(trackBar1);
             Controls.Add(checkBox1);
             Controls.Add(pictureBox1);
             Controls.Add(button1);
@@ -96,7 +82,6 @@
             Name = "opciones";
             Text = "Gran DT";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)trackBar1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -105,7 +90,6 @@
 
         private PictureBox pictureBox1;
         private CheckBox checkBox1;
-        private TrackBar trackBar1;
         private Button button1;
     }
 }
