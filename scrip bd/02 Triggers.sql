@@ -72,17 +72,5 @@ BEGIN
 END;
 //
 delimiter ;
-delimiter //
--- Fecha valida
-CREATE TRIGGER trg_valida_fecha_puntuacion
-BEFORE INSERT ON Puntuacion
-FOR EACH ROW
-BEGIN
-    IF NEW.fecha_numero > 49 THEN
-        SIGNAL SQLSTATE '45000'
-        SET MESSAGE_TEXT = 'La fecha no puede ser mayor o igual a 50.';
-    END IF;
-END;
-//
-delimiter ;
+
 

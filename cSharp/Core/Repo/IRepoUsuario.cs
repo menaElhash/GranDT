@@ -1,7 +1,7 @@
-namespace Core;
+namespace Core.Repos;
 
 public interface IRepoUsuario
 {
-    public void AltaUsuario(Usuario usuario);
-    public Usuario? Login (string email, string pass);
+    int AltaUsuario(Usuario usuario);
+    Usuario? LoginUsuario(string email, string contrasena);
 }

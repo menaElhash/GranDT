@@ -2,6 +2,6 @@ namespace Core;
 
 public class Rol
 {
-    public int Id_rol { get; set; }
-    public string Descripcion { get; set; } = string.Empty; // ej: Admin, Usuario
+    public int id_rol { get; set; }
+    public string descripcion { get; set; } = string.Empty; // ej: Admin, Usuario
 }

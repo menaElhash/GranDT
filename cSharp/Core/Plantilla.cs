@@ -2,8 +2,8 @@ namespace Core;
 
 public class Plantilla
 {
-    public int Id_plantilla { get; set; }
-    public int Id_usuario { get; set; } // FK -> Usuario
-    public decimal Presupuesto { get; set; }
-    public DateTime Fecha_creacion { get; set; }
+    public int id_plantilla { get; set; }
+    public int id_usuario { get; set; } // FK -> Usuario
+    public decimal presupuesto { get; set; }
+    public DateTime fecha_creacion { get; set; }
 }
