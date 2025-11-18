@@ -5,9 +5,16 @@ namespace el_dt_by_menardi_y_tello
 {
     public partial class opciones : Form
     {
-        public opciones()
+        private readonly int _usuarioId;
+
+        public opciones() : this(0)
+        {
+        }
+
+        public opciones(int usuarioId)
         {
             InitializeComponent();
+            _usuarioId = usuarioId;
 
             // El checkbox arranca según si la música está sonando o no
             checkBox1.Checked = MusicaGlobal.Iniciada;
@@ -27,7 +34,7 @@ namespace el_dt_by_menardi_y_tello
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Menu_pricipal menu = new Menu_pricipal();
+            Menu_pricipal menu = new Menu_pricipal(_usuarioId);
             menu.Show();
             this.Hide();
         }

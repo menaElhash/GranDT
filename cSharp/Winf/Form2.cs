@@ -12,15 +12,22 @@ namespace el_dt_by_menardi_y_tello
 {
     public partial class Form2 : Form
     {
-        public Form2()
+        private readonly int _usuarioId;
+
+        public Form2() : this(0)
+        {
+        }
+
+        public Form2(int usuarioId)
         {
             InitializeComponent();
+            _usuarioId = usuarioId;
         }
         // --- BOTÓN SIGUIENTE ---
         private void button1_Click(object sender, EventArgs e)
         {
-            anuncio2 anuncio2 = new anuncio2();
-            anuncio2.Show();
+            anuncio2 anuncioForm = new anuncio2(_usuarioId);
+            anuncioForm.Show();
             this.Hide();
         }
     }

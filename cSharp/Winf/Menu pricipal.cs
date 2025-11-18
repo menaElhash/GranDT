@@ -12,9 +12,16 @@ namespace el_dt_by_menardi_y_tello
 {
     public partial class Menu_pricipal : Form
     {
-        public Menu_pricipal()
+        private readonly int _usuarioId;
+
+        public Menu_pricipal() : this(0)
+        {
+        }
+
+        public Menu_pricipal(int usuarioId)
         {
             InitializeComponent();
+            _usuarioId = usuarioId;
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -30,7 +37,7 @@ namespace el_dt_by_menardi_y_tello
         // --- BOTÓN JUGAR ---
         private void button1_Click(object sender, EventArgs e)
         {
-            Form2 form2 = new Form2();
+            Form2 form2 = new Form2(_usuarioId);
             form2.Show();
             this.Hide();
         }
@@ -38,8 +45,8 @@ namespace el_dt_by_menardi_y_tello
         // --- BOTÓN OPCIONES ---
         private void button2_Click(object sender, EventArgs e)
         {
-            opciones opciones = new opciones();
-            opciones.Show();
+            opciones opcionesForm = new opciones(_usuarioId);
+            opcionesForm.Show();
             this.Hide();
         }
 

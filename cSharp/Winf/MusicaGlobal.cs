@@ -12,11 +12,11 @@ namespace el_dt_by_menardi_y_tello
         {
             if (Iniciada) return; // evita reiniciar si ya está sonando
 
-            string rutaMusica = "D:\\musica\\musicap.wav";
-            player = new SoundPlayer(rutaMusica);
-            player.PlayLooping();
-            Iniciada = true;
-            Sonando = true;
+            //   string rutaMusica = "D:\\musica\\musicap.wav";
+            //  player = new SoundPlayer(rutaMusica);
+            //   player.PlayLooping();
+            //   Iniciada = true;
+            //  Sonando = true;
         }
 
         public static void Detener()

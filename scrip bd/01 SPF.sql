@@ -80,12 +80,13 @@ END;
 CREATE PROCEDURE altaPlantilla(
     IN UnPresupuesto DECIMAL(10,2),
     IN UnidUsuario INT,
+    IN UnidEquipo INT,
     IN UnFechaCreacion DATE,
     OUT AIidPlantilla INT
 )
 BEGIN
-    INSERT INTO Gran_DT.Plantilla (presupuesto_max, id_usuario, fecha_creacion) 
-    VALUES (UnPresupuesto, UnidUsuario, UnFechaCreacion);
+    INSERT INTO Gran_DT.Plantilla (presupuesto_max, id_usuario, id_equipo, fecha_creacion) 
+    VALUES (UnPresupuesto, UnidUsuario, UnidEquipo, UnFechaCreacion);
     SET AIidPlantilla = LAST_INSERT_ID();
 END;
 //

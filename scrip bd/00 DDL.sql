@@ -90,13 +90,20 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `Gran_DT`.`Plantilla` (
   `id_plantilla` INT NOT NULL AUTO_INCREMENT,
   `id_usuario` INT NOT NULL,
+  `id_equipo` INT NOT NULL,
   `presupuesto_max` DECIMAL(10,2) NOT NULL,
   `fecha_creacion` DATE NOT NULL,
   PRIMARY KEY (`id_plantilla`),
   INDEX `fk_Plantilla_Usuario1_idx` (`id_usuario` ASC) VISIBLE,
+  INDEX `fk_Plantilla_Equipo1_idx` (`id_equipo` ASC) VISIBLE,
   CONSTRAINT `fk_Plantilla_Usuario1` -- CLAVE FORANEA CORREGIDA
     FOREIGN KEY (`id_usuario`)
     REFERENCES `Gran_DT`.`Usuario` (`id_usuario`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Plantilla_Equipo1`
+    FOREIGN KEY (`id_equipo`)
+    REFERENCES `Gran_DT`.`Equipo` (`id_equipo`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

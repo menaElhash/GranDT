@@ -20,8 +20,9 @@ namespace Dapper
             var p = new DynamicParameters();
 
             // Parámetros de entrada (IN)
-            p.Add("UnPresupuesto", plantilla.presupuesto);
+            p.Add("UnPresupuesto", plantilla.presupuesto_max);
             p.Add("UnidUsuario", plantilla.id_usuario);
+            p.Add("UnidEquipo", plantilla.id_equipo);
             p.Add("UnFechaCreacion", plantilla.fecha_creacion);
 
             // Parámetro de salida (OUT)

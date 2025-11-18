@@ -12,9 +12,16 @@ namespace el_dt_by_menardi_y_tello
 {
     public partial class anuncio2 : Form
     {
-        public anuncio2()
+        private readonly int _usuarioId;
+
+        public anuncio2() : this(0)
+        {
+        }
+
+        public anuncio2(int usuarioId)
         {
             InitializeComponent();
+            _usuarioId = usuarioId;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -23,13 +30,13 @@ namespace el_dt_by_menardi_y_tello
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            Plnatilla plnatilla = new Plnatilla();
-            plnatilla.Show();
+            SeleccionarPlantilla seleccionarPlantilla = new SeleccionarPlantilla(_usuarioId);
+            seleccionarPlantilla .Show();
             this.Hide();
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            Form2 form2 = new Form2();
+            Form2 form2 = new Form2(_usuarioId);
             form2.Show();
             this.Hide();
         }

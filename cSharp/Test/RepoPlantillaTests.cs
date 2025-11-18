@@ -45,8 +45,9 @@ public class RepoPlantillaTests : TestRepo
         // Uso del modelo Plantilla y sus propiedades correctas
         var plantilla = new Plantilla
         {
-            presupuesto = 5000000, 
+            presupuesto_max = 5000000, 
             id_usuario = TestUsuarioId,
+            id_equipo = 1,
             fecha_creacion = DateTime.Now.Date
         };
 
@@ -61,8 +62,9 @@ public class RepoPlantillaTests : TestRepo
         // 1. Alta de una plantilla de prueba
         var plantilla = new Plantilla
         {
-            presupuesto = 7000000,
+            presupuesto_max = 7000000,
             id_usuario = TestUsuarioId,
+            id_equipo = 1,
             fecha_creacion = DateTime.Now.Date
         };
         repoPlantilla.AltaPlantilla(plantilla);
@@ -78,7 +80,7 @@ public class RepoPlantillaTests : TestRepo
     public void AltaJugadorEnPlantilla_AgregaJugador()
     {
         // Arrange: Crear una plantilla de prueba
-        var plantilla = new Plantilla { presupuesto = 1000, id_usuario = TestUsuarioId, fecha_creacion = DateTime.Now.Date };
+        var plantilla = new Plantilla { presupuesto_max = 1000, id_usuario = TestUsuarioId, id_equipo = 1, fecha_creacion = DateTime.Now.Date };
         int idPlantilla = repoPlantilla.AltaPlantilla(plantilla);
 
         // Act
@@ -93,7 +95,7 @@ public class RepoPlantillaTests : TestRepo
     public void ActualizarEstadoJugador_CambiaCorrectamente()
     {
         // Arrange
-        var plantilla = new Plantilla { presupuesto = 2000, id_usuario = TestUsuarioId, fecha_creacion = DateTime.Now.Date };
+        var plantilla = new Plantilla { presupuesto_max = 2000, id_usuario = TestUsuarioId, id_equipo = 1, fecha_creacion = DateTime.Now.Date };
         int idPlantilla = repoPlantilla.AltaPlantilla(plantilla);
         
         // 1. Alta inicial (se asume que se creó con un ID único)

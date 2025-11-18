@@ -29,45 +29,45 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menú));
-            pictureBox3 = new PictureBox();
-            btnRegistrar = new PictureBox();
+            Cerrar = new PictureBox();
+            Siguiente = new PictureBox();
             pictureBox1 = new PictureBox();
             label1 = new Label();
             label2 = new Label();
-            textBox1 = new TextBox();
+            UsuarioBox = new TextBox();
             label6 = new Label();
-            textBox4 = new TextBox();
-            textBox2 = new TextBox();
+            PasswordBox = new TextBox();
+            RepetirPasswordBox = new TextBox();
             label3 = new Label();
             label4 = new Label();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)btnRegistrar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Cerrar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Siguiente).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
-            // pictureBox3
+            // Cerrar
             // 
-            pictureBox3.BackColor = Color.Transparent;
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(12, 411);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(106, 43);
-            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox3.TabIndex = 9;
-            pictureBox3.TabStop = false;
-            pictureBox3.Click += label5_Click;
+            Cerrar.BackColor = Color.Transparent;
+            Cerrar.Image = (Image)resources.GetObject("Cerrar.Image");
+            Cerrar.Location = new Point(12, 411);
+            Cerrar.Name = "Cerrar";
+            Cerrar.Size = new Size(106, 43);
+            Cerrar.SizeMode = PictureBoxSizeMode.Zoom;
+            Cerrar.TabIndex = 9;
+            Cerrar.TabStop = false;
+            Cerrar.Click += label5_Click;
             // 
-            // btnRegistrar
+            // Siguiente
             // 
-            btnRegistrar.BackColor = Color.Transparent;
-            btnRegistrar.Image = (Image)resources.GetObject("btnRegistrar.Image");
-            btnRegistrar.Location = new Point(638, 400);
-            btnRegistrar.Name = "btnRegistrar";
-            btnRegistrar.Size = new Size(193, 54);
-            btnRegistrar.SizeMode = PictureBoxSizeMode.Zoom;
-            btnRegistrar.TabIndex = 9;
-            btnRegistrar.TabStop = false;
-            btnRegistrar.Click += label3_Click;
+            Siguiente.BackColor = Color.Transparent;
+            Siguiente.Image = (Image)resources.GetObject("Siguiente.Image");
+            Siguiente.Location = new Point(638, 400);
+            Siguiente.Name = "Siguiente";
+            Siguiente.Size = new Size(193, 54);
+            Siguiente.SizeMode = PictureBoxSizeMode.Zoom;
+            Siguiente.TabIndex = 9;
+            Siguiente.TabStop = false;
+            Siguiente.Click += label3_Click;
             // 
             // pictureBox1
             // 
@@ -103,13 +103,13 @@
             label2.TabIndex = 11;
             label2.Text = "Usuario:";
             // 
-            // textBox1
+            // UsuarioBox
             // 
-            textBox1.Location = new Point(134, 104);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(216, 23);
-            textBox1.TabIndex = 12;
-            textBox1.Click += textBox1_TextChanged;
+            UsuarioBox.Location = new Point(134, 104);
+            UsuarioBox.Name = "UsuarioBox";
+            UsuarioBox.Size = new Size(216, 23);
+            UsuarioBox.TabIndex = 12;
+            UsuarioBox.Click += textBox1_TextChanged;
             // 
             // label6
             // 
@@ -123,21 +123,21 @@
             label6.Text = "Contraseña:";
             label6.Click += label6_Click;
             // 
-            // textBox4
+            // PasswordBox
             // 
-            textBox4.Location = new Point(134, 150);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(216, 23);
-            textBox4.TabIndex = 12;
-            textBox4.Click += textBox2_TextChanged;
+            PasswordBox.Location = new Point(134, 150);
+            PasswordBox.Name = "PasswordBox";
+            PasswordBox.Size = new Size(216, 23);
+            PasswordBox.TabIndex = 12;
+            PasswordBox.Click += textBox2_TextChanged;
             // 
-            // textBox2
+            // RepetirPasswordBox
             // 
-            textBox2.Location = new Point(134, 206);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(216, 23);
-            textBox2.TabIndex = 12;
-            textBox2.Click += textBox2_TextChanged;
+            RepetirPasswordBox.Location = new Point(134, 206);
+            RepetirPasswordBox.Name = "RepetirPasswordBox";
+            RepetirPasswordBox.Size = new Size(216, 23);
+            RepetirPasswordBox.TabIndex = 12;
+            RepetirPasswordBox.Click += textBox2_TextChanged;
             // 
             // label3
             // 
@@ -170,25 +170,25 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(861, 466);
-            Controls.Add(textBox2);
-            Controls.Add(textBox4);
-            Controls.Add(textBox1);
+            Controls.Add(RepetirPasswordBox);
+            Controls.Add(PasswordBox);
+            Controls.Add(UsuarioBox);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label6);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
-            Controls.Add(btnRegistrar);
-            Controls.Add(pictureBox3);
+            Controls.Add(Siguiente);
+            Controls.Add(Cerrar);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Menú";
             Text = "Gran DT";
             Load += Menú_Load;
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)btnRegistrar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Cerrar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Siguiente).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -198,15 +198,15 @@
         private TextBox txtEmail;
         private TextBox txtUsuario;
         private TextBox txtPassword;
-        private PictureBox pictureBox3;
-        private PictureBox btnRegistrar;
+        private PictureBox Cerrar;
+        private PictureBox Siguiente;
         private PictureBox pictureBox1;
         private Label label1;
         private Label label2;
-        private TextBox textBox1;
+        private TextBox UsuarioBox;
         private Label label6;
-        private TextBox textBox4;
-        private TextBox textBox2;
+        private TextBox PasswordBox;
+        private TextBox RepetirPasswordBox;
         private Label label3;
         private Label label4;
     }

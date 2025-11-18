@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
+using Dapper;
+using Core;
+using System.Data;
 
 namespace el_dt_by_menardi_y_tello
 {
@@ -28,27 +31,93 @@ namespace el_dt_by_menardi_y_tello
         // --- BOTÓN SIGUIENTE ---
         private void button1_Click(object sender, EventArgs e)
         {
-            string usuario = textBox1.Text.Trim();
-            string email = textBox4.Text.Trim();
-            string contraseña = textBox2.Text.Trim();
+            string nombre = NombreBox.Text.Trim();
+            string email = EmailBox.Text.Trim();
+            string contraseña = PasswordBox.Text.Trim();
+            string apellido = ApellidoBox.Text.Trim();
+            string fechaNacimientoStr = NacimientoBox.Text.Trim();
 
-            // Validaciones (solo campos vacíos)
-            bool camposIncompletos = string.IsNullOrWhiteSpace(usuario) ||
-                                     string.IsNullOrWhiteSpace(email) ||
-                                     string.IsNullOrWhiteSpace(contraseña);
-
-            if (camposIncompletos)
+            // Validaciones
+            if (string.IsNullOrWhiteSpace(nombre) || 
+                string.IsNullOrWhiteSpace(email) || 
+                string.IsNullOrWhiteSpace(contraseña) ||
+                string.IsNullOrWhiteSpace(fechaNacimientoStr))
             {
-                // Si hay error, abre el form de error
-                error errorForm = new error();
-                errorForm.ShowDialog();
+                MessageBox.Show(
+                    "Por favor completa todos los campos.",
+                    "Campos Incompletos",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
                 return;
             }
 
-            // Si todo está correcto → pasa al menú principal
-            Menu_pricipal menuForm = new Menu_pricipal();
-            menuForm.Show();
-            this.Hide();
+            // Validar formato de fecha
+            if (!DateTime.TryParse(fechaNacimientoStr, out DateTime fechaNacimiento))
+            {
+                MessageBox.Show(
+                    "Formato de fecha incorrecto. Usa YYYY-MM-DD.",
+                    "Error de Fecha",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+                return;
+            }
+
+            try
+            {
+                // Crear objeto Usuario
+                Usuario nuevoUsuario = new Usuario
+                {
+                    nombre = nombre,
+                    apellido = apellido,
+                    email = email,
+                    fecha_nacimiento = fechaNacimiento,
+                    password = contraseña,
+                    id_rol = 2 // Rol por defecto para usuario nuevo (ajusta según tu BD)
+                };
+
+                // Usar RepoUsuario para registrar
+                using (IDbConnection conexion = DbConnection.GetConnection())
+                {
+                    var repoUsuario = new Dapper.RepoUsuario(conexion);
+                    int idUsuarioCreado = repoUsuario.AltaUsuario(nuevoUsuario);
+
+                    if (idUsuarioCreado > 0)
+                    {
+                        // Registro exitoso
+                        MessageBox.Show(
+                            "¡Usuario registrado exitosamente!",
+                            "Éxito",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information
+                        );
+
+                        // Volver al menú de login
+                        Menú menú = new Menú();
+                        menú.Show();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        MessageBox.Show(
+                            "Error al registrar el usuario. Intenta nuevamente.",
+                            "Error de Registro",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error
+                        );
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    $"Error al registrar: {ex.Message}",
+                    "Error de Conexión",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            }
         }
 
         // --- BOTÓN volver ---

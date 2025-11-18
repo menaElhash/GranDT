@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Dapper;
+using Core;
 
 namespace el_dt_by_menardi_y_tello
 {
@@ -38,19 +40,53 @@ namespace el_dt_by_menardi_y_tello
 
         private void label3_Click(object sender, EventArgs e)
         {
-            // Verifica si los campos están completos o si viene de nuevo usuario
-            if (nuevoUsuarioCreado ||
-                (!string.IsNullOrWhiteSpace(textBox1.Text) && !string.IsNullOrWhiteSpace(textBox4.Text)))
+            string email = UsuarioBox.Text.Trim();
+            string contraseña = PasswordBox.Text.Trim();
+
+            // Validación de campos vacíos
+            if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(contraseña))
             {
-                // Si todo está correcto → entra al menú principal
-                Menu_pricipal menuForm = new Menu_pricipal();
-                menuForm.Show();
-                this.Hide();
+                error errorForm = new error();
+                errorForm.ShowDialog();
+                return;
             }
-            else
+
+            try
             {
-                // Si falta algo → abre el form de error
-                error error = new error();
+                // Usar RepoUsuario para hacer login
+                using (IDbConnection conexion = DbConnection.GetConnection())
+                {
+                    var repoUsuario = new Dapper.RepoUsuario(conexion);
+                    Usuario? usuarioAutenticado = repoUsuario.LoginUsuario(email, contraseña);
+
+                    if (usuarioAutenticado != null)
+                    {
+                        // Login exitoso
+                        Menu_pricipal menuForm = new Menu_pricipal(usuarioAutenticado.id_usuario);
+                        menuForm.Show();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        // Usuario no encontrado o contraseña incorrecta
+                        MessageBox.Show(
+                            "Email o contraseña incorrectos. Intenta nuevamente.",
+                            "Error de Login",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error
+                        );
+                        PasswordBox.Clear();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    $"Error al intentar loguear: {ex.Message}",
+                    "Error de Conexión",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
             }
         }
 

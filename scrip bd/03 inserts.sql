@@ -122,10 +122,10 @@ SET @idPlantilla2 = 0;
 SET @idPlantilla3 = 0;
 SET @idPlantilla4 = 0;
 
-CALL altaPlantilla(10000000, 1, '2025-01-01', @idPlantilla1);
-CALL altaPlantilla(8500000, 1, '2025-01-02', @idPlantilla2);
-CALL altaPlantilla(12000000, 2, '2025-01-03', @idPlantilla3);
-CALL altaPlantilla(7500000, 4, '2025-01-04', @idPlantilla4);
+CALL altaPlantilla(10000000, 1, 1, '2025-01-01', @idPlantilla1);
+CALL altaPlantilla(8500000, 1, 2, '2025-01-02', @idPlantilla2);
+CALL altaPlantilla(12000000, 2, 1, '2025-01-03', @idPlantilla3);
+CALL altaPlantilla(7500000, 4, 2, '2025-01-04', @idPlantilla4);
 //
 
 -- ===================================
