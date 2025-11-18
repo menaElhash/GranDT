@@ -28,26 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AltaPlantilla));
             cbEquipo = new ComboBox();
             btnCrear = new Button();
             btnCancelar = new Button();
             lblEquipo = new Label();
             lblPresupuesto = new Label();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // cbEquipo
             // 
             cbEquipo.FormattingEnabled = true;
-            cbEquipo.Location = new Point(150, 100);
+            cbEquipo.Location = new Point(150, 168);
             cbEquipo.Name = "cbEquipo";
             cbEquipo.Size = new Size(500, 23);
             cbEquipo.TabIndex = 0;
             // 
             // btnCrear
             // 
-            btnCrear.Location = new Point(200, 350);
+            btnCrear.Location = new Point(438, 336);
             btnCrear.Name = "btnCrear";
-            btnCrear.Size = new Size(100, 30);
+            btnCrear.Size = new Size(200, 41);
             btnCrear.TabIndex = 1;
             btnCrear.Text = "Crear Plantilla";
             btnCrear.UseVisualStyleBackColor = true;
@@ -55,9 +58,9 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(500, 350);
+            btnCancelar.Location = new Point(168, 341);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(100, 30);
+            btnCancelar.Size = new Size(187, 30);
             btnCancelar.TabIndex = 2;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
@@ -68,18 +71,29 @@
             lblEquipo.AutoSize = true;
             lblEquipo.Location = new Point(150, 50);
             lblEquipo.Name = "lblEquipo";
-            lblEquipo.Size = new Size(100, 15);
+            lblEquipo.Size = new Size(106, 15);
             lblEquipo.TabIndex = 3;
             lblEquipo.Text = "Selecciona Equipo:";
             // 
             // lblPresupuesto
             // 
             lblPresupuesto.AutoSize = true;
-            lblPresupuesto.Location = new Point(150, 150);
+            lblPresupuesto.Location = new Point(150, 208);
             lblPresupuesto.Name = "lblPresupuesto";
-            lblPresupuesto.Size = new Size(150, 15);
+            lblPresupuesto.Size = new Size(138, 15);
             lblPresupuesto.TabIndex = 4;
             lblPresupuesto.Text = "Presupuesto: $10,000,000";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Enabled = false;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(-1, -5);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(805, 458);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 5;
+            pictureBox1.TabStop = false;
             // 
             // AltaPlantilla
             // 
@@ -87,13 +101,15 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(lblPresupuesto);
-            Controls.Add(lblEquipo);
-            Controls.Add(btnCancelar);
-            Controls.Add(btnCrear);
             Controls.Add(cbEquipo);
+            Controls.Add(pictureBox1);
+            Controls.Add(lblEquipo);
+            Controls.Add(btnCrear);
+            Controls.Add(btnCancelar);
             Name = "AltaPlantilla";
             Text = "Crear Nueva Plantilla";
             Load += AltaPlantilla_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -105,5 +121,6 @@
         private Button btnCancelar;
         private Label lblEquipo;
         private Label lblPresupuesto;
+        private PictureBox pictureBox1;
     }
 }
