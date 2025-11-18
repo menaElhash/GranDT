@@ -15,7 +15,8 @@ namespace el_dt_by_menardi_y_tello
 {
     public partial class AltaPlantilla : Form
     {
-        private const decimal PRESUPUESTO_FIJO = 10000000m;
+        private const decimal PRESUPUESTO_FIJO = 650
+            00000m;
 
         private readonly IRepoPlantilla _repoPlantilla;
         private readonly IRepoJugador _repoJugador;
