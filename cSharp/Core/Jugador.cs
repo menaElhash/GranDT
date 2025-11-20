@@ -7,7 +7,7 @@ public class Jugador
     public string? apodo { get; set; } // opcional
     public DateTime fecha_nacimiento { get; set; }
     public decimal cotizacion { get; set; }
-    public int id_equipo { get; set; } // FK -> Equipo
+    public Equipo Equipo { get; set; }
     public int id_tipo { get; set; } // FK -> TipoJugador
     public IEnumerable<Puntuacion> puntos = [];
 }
