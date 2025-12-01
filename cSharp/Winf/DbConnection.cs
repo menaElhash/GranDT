@@ -9,7 +9,7 @@ namespace el_dt_by_menardi_y_tello
     /// </summary>
     public class DbConnection
     {
-        private const string _cadena = "Server=localhost;User ID=5to_agbd;Password=Trigg3rs!;Database=Gran_DT;";
+        private const string _cadena = "Server=localhost;User ID=root;Password=root;Database=Gran_DT;";
 
         public static IDbConnection GetConnection()
         {

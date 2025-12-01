@@ -26,154 +26,167 @@ namespace el_dt_by_menardi_y_tello
         /// </summary>
         private void InitializeComponent()
         {
-            this.gbDatos = new System.Windows.Forms.GroupBox();
-            this.lblFechaCreacion = new System.Windows.Forms.Label();
-            this.lblPlantillaId = new System.Windows.Forms.Label();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.tbPresupuesto = new System.Windows.Forms.TextBox();
-            this.lblPresupuesto = new System.Windows.Forms.Label();
-            this.cbEquipo = new System.Windows.Forms.ComboBox();
-            this.lblEquipo = new System.Windows.Forms.Label();
-            this.gbJugadores = new System.Windows.Forms.GroupBox();
-            this.dgvJugadores = new System.Windows.Forms.DataGridView();
-            this.btnAgregarJugador = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.lblRestante = new System.Windows.Forms.Label();
-            this.gbDatos.SuspendLayout();
-            this.gbJugadores.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvJugadores)).BeginInit();
-            this.SuspendLayout();
-            
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditarPlantilla));
+            gbDatos = new GroupBox();
+            btnGuardar = new Button();
+            lblFechaCreacion = new Label();
+            lblPlantillaId = new Label();
+            tbPresupuesto = new TextBox();
+            lblPresupuesto = new Label();
+            cbEquipo = new ComboBox();
+            lblEquipo = new Label();
+            lblRestante = new Label();
+            dgvJugadores = new DataGridView();
+            btnAgregarJugador = new Button();
+            btnCancelar = new Button();
+            gbJugadores = new GroupBox();
+            gbDatos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvJugadores).BeginInit();
+            gbJugadores.SuspendLayout();
+            SuspendLayout();
+            // 
             // gbDatos
-            this.gbDatos.Controls.Add(this.btnGuardar);
-            this.gbDatos.Controls.Add(this.lblFechaCreacion);
-            this.gbDatos.Controls.Add(this.lblPlantillaId);
-            this.gbDatos.Controls.Add(this.tbPresupuesto);
-            this.gbDatos.Controls.Add(this.lblPresupuesto);
-            this.gbDatos.Controls.Add(this.cbEquipo);
-            this.gbDatos.Controls.Add(this.lblEquipo);
-            this.gbDatos.Controls.Add(this.lblRestante);
-            this.gbDatos.Location = new System.Drawing.Point(12, 12);
-            this.gbDatos.Name = "gbDatos";
-            this.gbDatos.Size = new System.Drawing.Size(460, 200);
-            this.gbDatos.TabIndex = 0;
-            this.gbDatos.TabStop = false;
-            this.gbDatos.Text = "Datos de Plantilla";
-            
-            // lblPlantillaId
-            this.lblPlantillaId.AutoSize = true;
-            this.lblPlantillaId.Location = new System.Drawing.Point(6, 22);
-            this.lblPlantillaId.Name = "lblPlantillaId";
-            this.lblPlantillaId.Size = new System.Drawing.Size(80, 15);
-            this.lblPlantillaId.TabIndex = 0;
-            this.lblPlantillaId.Text = "ID Plantilla: 0";
-            
-            // lblFechaCreacion
-            this.lblFechaCreacion.AutoSize = true;
-            this.lblFechaCreacion.Location = new System.Drawing.Point(6, 47);
-            this.lblFechaCreacion.Name = "lblFechaCreacion";
-            this.lblFechaCreacion.Size = new System.Drawing.Size(98, 15);
-            this.lblFechaCreacion.TabIndex = 1;
-            this.lblFechaCreacion.Text = "Creada: 01/01/2025";
-            
-            // lblEquipo
-            this.lblEquipo.AutoSize = true;
-            this.lblEquipo.Location = new System.Drawing.Point(6, 72);
-            this.lblEquipo.Name = "lblEquipo";
-            this.lblEquipo.Size = new System.Drawing.Size(45, 15);
-            this.lblEquipo.TabIndex = 2;
-            this.lblEquipo.Text = "Equipo:";
-            
-            // cbEquipo
-            this.cbEquipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbEquipo.FormattingEnabled = true;
-            this.cbEquipo.Location = new System.Drawing.Point(6, 90);
-            this.cbEquipo.Name = "cbEquipo";
-            this.cbEquipo.Size = new System.Drawing.Size(448, 23);
-            this.cbEquipo.TabIndex = 3;
-            
-            // lblPresupuesto
-            this.lblPresupuesto.AutoSize = true;
-            this.lblPresupuesto.Location = new System.Drawing.Point(6, 117);
-            this.lblPresupuesto.Name = "lblPresupuesto";
-            this.lblPresupuesto.Size = new System.Drawing.Size(72, 15);
-            this.lblPresupuesto.TabIndex = 4;
-            this.lblPresupuesto.Text = "Presupuesto:";
-            
-            // lblRestante
-            this.lblRestante.AutoSize = true;
-            this.lblRestante.Location = new System.Drawing.Point(6, 160);
-            this.lblRestante.Name = "lblRestante";
-            this.lblRestante.Size = new System.Drawing.Size(95, 15);
-            this.lblRestante.TabIndex = 7;
-            this.lblRestante.Text = "Restante: $0";
-            
-            // tbPresupuesto
-            this.tbPresupuesto.Location = new System.Drawing.Point(6, 135);
-            this.tbPresupuesto.Name = "tbPresupuesto";
-            this.tbPresupuesto.Size = new System.Drawing.Size(448, 23);
-            this.tbPresupuesto.TabIndex = 5;
-            
+            // 
+            gbDatos.BackColor = Color.Transparent;
+            gbDatos.Controls.Add(btnGuardar);
+            gbDatos.Controls.Add(lblFechaCreacion);
+            gbDatos.Controls.Add(lblPlantillaId);
+            gbDatos.Controls.Add(tbPresupuesto);
+            gbDatos.Controls.Add(lblPresupuesto);
+            gbDatos.Controls.Add(cbEquipo);
+            gbDatos.Controls.Add(lblEquipo);
+            gbDatos.Controls.Add(lblRestante);
+            gbDatos.Location = new Point(36, 12);
+            gbDatos.Name = "gbDatos";
+            gbDatos.Size = new Size(465, 241);
+            gbDatos.TabIndex = 0;
+            gbDatos.TabStop = false;
+            // 
             // btnGuardar
-            this.btnGuardar.Location = new System.Drawing.Point(6, 184);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(448, 30);
-            this.btnGuardar.TabIndex = 6;
-            this.btnGuardar.Text = "Guardar Cambios";
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            
-            // gbJugadores
-            this.gbJugadores.Controls.Add(this.btnAgregarJugador);
-            this.gbJugadores.Controls.Add(this.dgvJugadores);
-            this.gbJugadores.Location = new System.Drawing.Point(12, 218);
-            this.gbJugadores.Name = "gbJugadores";
-            this.gbJugadores.Size = new System.Drawing.Size(460, 300);
-            this.gbJugadores.TabIndex = 1;
-            this.gbJugadores.TabStop = false;
-            this.gbJugadores.Text = "Jugadores en Plantilla";
-            
+            // 
+            btnGuardar.Location = new Point(0, 186);
+            btnGuardar.Name = "btnGuardar";
+            btnGuardar.Size = new Size(448, 30);
+            btnGuardar.TabIndex = 6;
+            btnGuardar.Text = "Guardar Cambios";
+            btnGuardar.UseVisualStyleBackColor = true;
+            btnGuardar.Click += btnGuardar_Click;
+            // 
+            // lblFechaCreacion
+            // 
+            lblFechaCreacion.AutoSize = true;
+            lblFechaCreacion.Location = new Point(88, 44);
+            lblFechaCreacion.Name = "lblFechaCreacion";
+            lblFechaCreacion.Size = new Size(65, 15);
+            lblFechaCreacion.TabIndex = 1;
+            lblFechaCreacion.Text = "01/01/2025";
+            // 
+            // lblPlantillaId
+            // 
+            lblPlantillaId.AutoSize = true;
+            lblPlantillaId.Location = new Point(112, 19);
+            lblPlantillaId.Name = "lblPlantillaId";
+            lblPlantillaId.Size = new Size(13, 15);
+            lblPlantillaId.TabIndex = 0;
+            lblPlantillaId.Text = "0";
+            // 
+            // tbPresupuesto
+            // 
+            tbPresupuesto.Location = new Point(6, 157);
+            tbPresupuesto.Name = "tbPresupuesto";
+            tbPresupuesto.Size = new Size(448, 23);
+            tbPresupuesto.TabIndex = 5;
+            // 
+            // lblPresupuesto
+            // 
+            lblPresupuesto.AutoSize = true;
+            lblPresupuesto.Location = new Point(125, 134);
+            lblPresupuesto.Name = "lblPresupuesto";
+            lblPresupuesto.Size = new Size(0, 15);
+            lblPresupuesto.TabIndex = 4;
+            // 
+            // cbEquipo
+            // 
+            cbEquipo.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbEquipo.FormattingEnabled = true;
+            cbEquipo.Location = new Point(6, 97);
+            cbEquipo.Name = "cbEquipo";
+            cbEquipo.Size = new Size(448, 23);
+            cbEquipo.TabIndex = 3;
+            // 
+            // lblEquipo
+            // 
+            lblEquipo.AutoSize = true;
+            lblEquipo.Location = new Point(88, 59);
+            lblEquipo.Name = "lblEquipo";
+            lblEquipo.Size = new Size(0, 15);
+            lblEquipo.TabIndex = 2;
+            // 
+            // lblRestante
+            // 
+            lblRestante.AutoSize = true;
+            lblRestante.Location = new Point(6, 160);
+            lblRestante.Name = "lblRestante";
+            lblRestante.Size = new Size(70, 15);
+            lblRestante.TabIndex = 7;
+            lblRestante.Text = "Restante: $0";
+            // 
             // dgvJugadores
-            this.dgvJugadores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvJugadores.Location = new System.Drawing.Point(6, 22);
-            this.dgvJugadores.Name = "dgvJugadores";
-            this.dgvJugadores.RowTemplate.Height = 25;
-            this.dgvJugadores.Size = new System.Drawing.Size(448, 242);
-            this.dgvJugadores.TabIndex = 0;
-            
+            // 
+            dgvJugadores.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvJugadores.Location = new Point(23, 25);
+            dgvJugadores.Name = "dgvJugadores";
+            dgvJugadores.Size = new Size(442, 188);
+            dgvJugadores.TabIndex = 0;
+            // 
             // btnAgregarJugador
-            this.btnAgregarJugador.Location = new System.Drawing.Point(6, 268);
-            this.btnAgregarJugador.Name = "btnAgregarJugador";
-            this.btnAgregarJugador.Size = new System.Drawing.Size(448, 26);
-            this.btnAgregarJugador.TabIndex = 1;
-            this.btnAgregarJugador.Text = "Agregar Jugador";
-            this.btnAgregarJugador.UseVisualStyleBackColor = true;
-            this.btnAgregarJugador.Click += new System.EventHandler(this.btnAgregarJugador_Click);
-            
+            // 
+            btnAgregarJugador.Location = new Point(23, 220);
+            btnAgregarJugador.Name = "btnAgregarJugador";
+            btnAgregarJugador.Size = new Size(448, 26);
+            btnAgregarJugador.TabIndex = 1;
+            btnAgregarJugador.Text = "Agregar Jugador";
+            btnAgregarJugador.UseVisualStyleBackColor = true;
+            btnAgregarJugador.Click += btnAgregarJugador_Click;
+            // 
             // btnCancelar
-            this.btnCancelar.Location = new System.Drawing.Point(12, 524);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(460, 30);
-            this.btnCancelar.TabIndex = 2;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            
+            // 
+            btnCancelar.Location = new Point(18, 252);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(460, 30);
+            btnCancelar.TabIndex = 2;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
+            // 
+            // gbJugadores
+            // 
+            gbJugadores.BackColor = Color.Transparent;
+            gbJugadores.Controls.Add(btnCancelar);
+            gbJugadores.Controls.Add(btnAgregarJugador);
+            gbJugadores.Controls.Add(dgvJugadores);
+            gbJugadores.Location = new Point(12, 234);
+            gbJugadores.Name = "gbJugadores";
+            gbJugadores.Size = new Size(489, 319);
+            gbJugadores.TabIndex = 1;
+            gbJugadores.TabStop = false;
+            // 
             // EditarPlantilla
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 566);
-            this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.gbJugadores);
-            this.Controls.Add(this.gbDatos);
-            this.Name = "EditarPlantilla";
-            this.Text = "Editar Plantilla";
-            this.Load += new System.EventHandler(this.EditarPlantilla_Load);
-            this.gbDatos.ResumeLayout(false);
-            this.gbDatos.PerformLayout();
-            this.gbJugadores.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvJugadores)).EndInit();
-            this.ResumeLayout(false);
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            ClientSize = new Size(527, 528);
+            Controls.Add(gbJugadores);
+            Controls.Add(gbDatos);
+            Name = "EditarPlantilla";
+            Text = "Editar Plantilla";
+            Load += EditarPlantilla_Load;
+            gbDatos.ResumeLayout(false);
+            gbDatos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvJugadores).EndInit();
+            gbJugadores.ResumeLayout(false);
+            ResumeLayout(false);
         }
 
         private System.Windows.Forms.GroupBox gbDatos;
@@ -185,9 +198,9 @@ namespace el_dt_by_menardi_y_tello
         private System.Windows.Forms.TextBox tbPresupuesto;
         private System.Windows.Forms.Label lblRestante;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.GroupBox gbJugadores;
-        private System.Windows.Forms.DataGridView dgvJugadores;
-        private System.Windows.Forms.Button btnAgregarJugador;
-        private System.Windows.Forms.Button btnCancelar;
+        private DataGridView dgvJugadores;
+        private Button btnAgregarJugador;
+        private Button btnCancelar;
+        private GroupBox gbJugadores;
     }
 }
