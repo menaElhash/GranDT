@@ -35,25 +35,6 @@ namespace el_dt_by_menardi_y_tello
         {
             CargarEquipos();
             lblPresupuesto.Text = $"Presupuesto: ${PRESUPUESTO_FIJO:N0}";
-
-            // Verificar rol del usuario: sólo admin (id_rol == 1) puede crear plantillas
-            try
-            {
-                var usuario = _conexion.QueryFirstOrDefault<Usuario>("SELECT * FROM Gran_DT.Usuario WHERE id_usuario = @id", new { id = _usuarioId });
-                bool esAdmin = usuario != null && usuario.id_rol == 1;
-                if (!esAdmin)
-                {
-                    MessageBox.Show("Solo los administradores pueden crear plantillas.", "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    cbEquipo.Enabled = false;
-                    btnCrear.Enabled = false;
-                }
-            }
-            catch
-            {
-                // En caso de error al comprobar rol, deshabilitar creación por seguridad
-                cbEquipo.Enabled = false;
-                btnCrear.Enabled = false;
-            }
         }
 
         private void CargarEquipos()
@@ -88,14 +69,6 @@ namespace el_dt_by_menardi_y_tello
 
             try
             {
-                // Verificar nuevamente rol del usuario por seguridad
-                var usuario = _conexion.QueryFirstOrDefault<Usuario>("SELECT * FROM Gran_DT.Usuario WHERE id_usuario = @id", new { id = _usuarioId });
-                if (usuario == null || usuario.id_rol != 1)
-                {
-                    MessageBox.Show("Acción no permitida: requiere permisos de administrador.", "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
                 var equipoSeleccionado = (Equipo)cbEquipo.SelectedItem;
                 var plantilla = new Plantilla
                 {
