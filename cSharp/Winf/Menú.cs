@@ -61,8 +61,8 @@ namespace el_dt_by_menardi_y_tello
 
                     if (usuarioAutenticado != null)
                     {
-                        // Login exitoso
-                        Menu_pricipal menuForm = new Menu_pricipal(usuarioAutenticado.id_usuario);
+                        // Login exitoso - pasar role al menu principal
+                        Menu_pricipal menuForm = new Menu_pricipal(usuarioAutenticado.id_usuario, usuarioAutenticado.id_rol);
                         menuForm.Show();
                         this.Hide();
                     }

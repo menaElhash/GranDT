@@ -196,6 +196,77 @@ CALL altaPuntuacion(5, 8.0, '2025-01-22', @idPuntuacion13); -- Fecha 3
 
 -- Puntuaciones para Borré (id_jugador = 8)
 CALL altaPuntuacion(8, 9.0, '2025-01-08', @idPuntuacion14); -- Fecha 1
+-- ===================================
+-- 9. INSERTAR 50 JUGADORES ADICIONALES
+-- ===================================
+-- Se asume que las variables @idJugadorX ya han sido declaradas.
+-- Los nuevos IDs de jugador comenzarán a partir del 9.
+
+-- Arqueros (id_tipo = 1)
+CALL altaJugador('Gerónimo', 'Rulli', 'GR', '1992-05-20', 4800000, 1, 3, @idJugador9);
+CALL altaJugador('Esteban', 'Andrada', 'EA', '1991-01-26', 3200000, 1, 4, @idJugador10);
+CALL altaJugador('Guido', 'Herrera', 'GH', '1992-02-29', 2800000, 1, 5, @idJugador11);
+CALL altaJugador('Agustín', 'Rossi', 'AR', '1995-08-21', 3000000, 1, 6, @idJugador12);
+CALL altaJugador('Marcos', 'Díaz', 'MDZ', '1986-02-05', 1500000, 1, 7, @idJugador13);
+CALL altaJugador('Fernando', 'Muslera', 'FM', '1986-06-16', 4000000, 1, 8, @idJugador14);
+CALL altaJugador('Juan', 'Mussi', 'JMS', '1994-09-11', 1200000, 1, 9, @idJugador15);
+
+-- Defensores (id_tipo = 2)
+CALL altaJugador('Gonzalo', 'Montiel', 'GMNT', '1997-01-01', 5100000, 2, 2, @idJugador16);
+CALL altaJugador('Lisandro', 'López', 'LL', '1989-08-25', 3800000, 2, 1, @idJugador17);
+CALL altaJugador('Javier', 'Pinola', 'JP', '1983-02-24', 1800000, 2, 2, @idJugador18);
+CALL altaJugador('Fabricio', 'Bustos', 'FB', '1996-04-29', 3000000, 2, 4, @idJugador19);
+CALL altaJugador('Emanuel', 'Mas', 'EM', '1989-01-15', 2500000, 2, 5, @idJugador20);
+CALL altaJugador('Lucas', 'Martínez', 'LMTZ', '1996-05-10', 4500000, 2, 6, @idJugador21);
+CALL altaJugador('Leandro', 'González', 'LGZ', '1991-05-20', 1600000, 2, 7, @idJugador22);
+CALL altaJugador('Marcos', 'Rojo', 'MRJ', '1990-03-20', 3100000, 2, 8, @idJugador23);
+CALL altaJugador('Walter', 'Kannemann', 'WK', '1991-03-14', 4200000, 2, 3, @idJugador24);
+CALL altaJugador('Juan', 'Foyth', 'JF', '1998-01-12', 6500000, 2, 10, @idJugador25);
+CALL altaJugador('Ramiro', 'Funes Mori', 'RFM', '1991-05-05', 2900000, 2, 2, @idJugador26);
+CALL altaJugador('Leonardo', 'Jara', 'LJ', '1991-05-25', 2000000, 2, 1, @idJugador27);
+CALL altaJugador('Guillermo', 'Soto', 'GS', '1994-07-28', 1900000, 2, 3, @idJugador28);
+CALL altaJugador('Lautaro', 'Giannetti', 'LGI', '1993-11-13', 3300000, 2, 6, @idJugador29);
+
+-- Centrocampistas (id_tipo = 3)
+CALL altaJugador('Exequiel', 'Palacios', 'EP', '1998-10-05', 5500000, 3, 2, @idJugador30);
+CALL altaJugador('Nacho', 'Fernández', 'NFZ', '1990-01-12', 4300000, 3, 2, @idJugador31);
+CALL altaJugador('Guido', 'Rodríguez', 'GRD', '1994-04-12', 6200000, 3, 7, @idJugador32);
+CALL altaJugador('Enzo', 'Pérez', 'EPZ', '1986-02-22', 2500000, 3, 2, @idJugador33);
+CALL altaJugador('Edwin', 'Cardona', 'EC', '1992-12-08', 3000000, 3, 1, @idJugador34);
+CALL altaJugador('Ricardo', 'Centurión', 'RC', '1993-01-19', 2100000, 3, 5, @idJugador35);
+CALL altaJugador('Maximiliano', 'Meza', 'MM', '1992-12-15', 3800000, 3, 4, @idJugador36);
+CALL altaJugador('Santiago', 'Cáceres', 'SC', '1999-05-18', 2600000, 3, 6, @idJugador37);
+CALL altaJugador('Fausto', 'Vera', 'FV', '2000-03-26', 1700000, 3, 7, @idJugador38);
+CALL altaJugador('Alexis', 'Mac Allister', 'AMA', '1998-12-24', 4700000, 3, 8, @idJugador39);
+CALL altaJugador('Rodrigo', 'De Paul', 'RDP', '1994-05-24', 5900000, 3, 10, @idJugador40);
+CALL altaJugador('Iván', 'Marcone', 'IM', '1990-06-04', 2400000, 3, 1, @idJugador41);
+CALL altaJugador('Christian', 'Cueva', 'CCV', '1991-11-23', 1900000, 3, 3, @idJugador42);
+CALL altaJugador('Lucas', 'Zelarayán', 'LZ', '1992-06-20', 3500000, 3, 9, @idJugador43);
+CALL altaJugador('Mauro', 'Zárate', 'MZ', '1987-03-18', 1500000, 3, 6, @idJugador44);
+CALL altaJugador('Damián', 'Musto', 'DM', '1987-05-31', 1100000, 3, 4, @idJugador45);
+
+-- Delanteros (id_tipo = 4)
+CALL altaJugador('Lautaro', 'Martínez', 'LMTZ', '1997-08-22', 7000000, 4, 5, @idJugador46);
+CALL altaJugador('Darío', 'Benedetto', 'DB', '1990-05-13', 4900000, 4, 1, @idJugador47);
+CALL altaJugador('Mauro', 'Icardi', 'MI', '1993-02-19', 8500000, 4, 3, @idJugador48);
+CALL altaJugador('Sergio', 'Agüero', 'SA', '1988-06-02', 6000000, 4, 7, @idJugador49);
+CALL altaJugador('Lucas', 'Pratto', 'LP', '1988-06-04', 2800000, 4, 2, @idJugador50);
+CALL altaJugador('Wanchope', 'Ábila', 'WA', '1989-10-06', 2200000, 4, 1, @idJugador51);
+CALL altaJugador('José', 'López', 'JL', '2000-12-06', 1800000, 4, 10, @idJugador52);
+CALL altaJugador('Ramón', 'Ábila', 'RBA', '1991-09-06', 1500000, 4, 8, @idJugador53);
+CALL altaJugador('Cristian', 'Tarragona', 'CT', '1991-03-09', 1200000, 4, 9, @idJugador54);
+CALL altaJugador('Julián', 'Álvarez', 'JAZ', '2000-01-31', 6800000, 4, 2, @idJugador55);
+CALL altaJugador('Adam', 'Bari', 'AB', '1995-12-05', 1000000, 4, 4, @idJugador56);
+CALL altaJugador('Nicolás', 'Blandi', 'NB', '1990-01-13', 2000000, 4, 3, @idJugador57);
+CALL altaJugador('Carlos', 'Tevez', 'CTZ', '1984-02-05', 1500000, 4, 1, @idJugador58);
+CALL altaJugador('Lisandro', 'López', 'LL2', '1983-03-02', 1000000, 4, 5, @idJugador59);
+CALL altaJugador('Mateo', 'Retegui', 'MR', '1999-04-29', 3000000, 4, 6, @idJugador60);
+CALL altaJugador('Michael', 'Santos', 'MS', '1993-03-13', 1700000, 4, 7, @idJugador61);
+CALL altaJugador('Alejandro', 'Gómez', 'AG', '1988-02-15', 4500000, 4, 10, @idJugador62);
+CALL altaJugador('Angel', 'Romero', 'ARV', '1992-07-04', 2300000, 4, 3, @idJugador63);
+CALL altaJugador('Juan', 'Cazares', 'JCR', '1992-04-03', 1600000, 4, 4, @idJugador64);
+
+-- Fin de inserciones adicionales
 //
 
 DELIMITER ;

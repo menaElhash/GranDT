@@ -134,6 +134,7 @@
             // pictureBox1
             // 
             pictureBox1.BorderStyle = BorderStyle.FixedSingle;
+            pictureBox1.Enabled = false;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(-3, -11);
             pictureBox1.Name = "pictureBox1";

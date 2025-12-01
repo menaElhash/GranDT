@@ -15,8 +15,7 @@ namespace el_dt_by_menardi_y_tello
 {
     public partial class AltaPlantilla : Form
     {
-        private const decimal PRESUPUESTO_FIJO = 6500000;
-            
+        private const decimal PRESUPUESTO_FIJO = 65000000; // presupuesto fijado a 65,000,000
 
         private readonly IRepoPlantilla _repoPlantilla;
         private readonly IRepoJugador _repoJugador;
@@ -36,6 +35,25 @@ namespace el_dt_by_menardi_y_tello
         {
             CargarEquipos();
             lblPresupuesto.Text = $"Presupuesto: ${PRESUPUESTO_FIJO:N0}";
+
+            // Verificar rol del usuario: sólo admin (id_rol == 1) puede crear plantillas
+            try
+            {
+                var usuario = _conexion.QueryFirstOrDefault<Usuario>("SELECT * FROM Gran_DT.Usuario WHERE id_usuario = @id", new { id = _usuarioId });
+                bool esAdmin = usuario != null && usuario.id_rol == 1;
+                if (!esAdmin)
+                {
+                    MessageBox.Show("Solo los administradores pueden crear plantillas.", "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    cbEquipo.Enabled = false;
+                    btnCrear.Enabled = false;
+                }
+            }
+            catch
+            {
+                // En caso de error al comprobar rol, deshabilitar creación por seguridad
+                cbEquipo.Enabled = false;
+                btnCrear.Enabled = false;
+            }
         }
 
         private void CargarEquipos()
@@ -43,9 +61,10 @@ namespace el_dt_by_menardi_y_tello
             try
             {
                 var equipos = _repoJugador.TraerEquipo().ToList();
-                cbEquipo.DataSource = new BindingSource(equipos, null);
+                // Set Display/Value before DataSource to avoid transient binding issues
                 cbEquipo.DisplayMember = "nombre";
                 cbEquipo.ValueMember = "id_equipo";
+                cbEquipo.DataSource = new BindingSource(equipos, null);
             }
             catch (Exception ex)
             {
@@ -69,6 +88,14 @@ namespace el_dt_by_menardi_y_tello
 
             try
             {
+                // Verificar nuevamente rol del usuario por seguridad
+                var usuario = _conexion.QueryFirstOrDefault<Usuario>("SELECT * FROM Gran_DT.Usuario WHERE id_usuario = @id", new { id = _usuarioId });
+                if (usuario == null || usuario.id_rol != 1)
+                {
+                    MessageBox.Show("Acción no permitida: requiere permisos de administrador.", "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 var equipoSeleccionado = (Equipo)cbEquipo.SelectedItem;
                 var plantilla = new Plantilla
                 {

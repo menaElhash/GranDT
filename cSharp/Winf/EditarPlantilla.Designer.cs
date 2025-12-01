@@ -38,6 +38,7 @@ namespace el_dt_by_menardi_y_tello
             this.dgvJugadores = new System.Windows.Forms.DataGridView();
             this.btnAgregarJugador = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.lblRestante = new System.Windows.Forms.Label();
             this.gbDatos.SuspendLayout();
             this.gbJugadores.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvJugadores)).BeginInit();
@@ -51,6 +52,7 @@ namespace el_dt_by_menardi_y_tello
             this.gbDatos.Controls.Add(this.lblPresupuesto);
             this.gbDatos.Controls.Add(this.cbEquipo);
             this.gbDatos.Controls.Add(this.lblEquipo);
+            this.gbDatos.Controls.Add(this.lblRestante);
             this.gbDatos.Location = new System.Drawing.Point(12, 12);
             this.gbDatos.Name = "gbDatos";
             this.gbDatos.Size = new System.Drawing.Size(460, 200);
@@ -98,6 +100,14 @@ namespace el_dt_by_menardi_y_tello
             this.lblPresupuesto.TabIndex = 4;
             this.lblPresupuesto.Text = "Presupuesto:";
             
+            // lblRestante
+            this.lblRestante.AutoSize = true;
+            this.lblRestante.Location = new System.Drawing.Point(6, 160);
+            this.lblRestante.Name = "lblRestante";
+            this.lblRestante.Size = new System.Drawing.Size(95, 15);
+            this.lblRestante.TabIndex = 7;
+            this.lblRestante.Text = "Restante: $0";
+            
             // tbPresupuesto
             this.tbPresupuesto.Location = new System.Drawing.Point(6, 135);
             this.tbPresupuesto.Name = "tbPresupuesto";
@@ -105,7 +115,7 @@ namespace el_dt_by_menardi_y_tello
             this.tbPresupuesto.TabIndex = 5;
             
             // btnGuardar
-            this.btnGuardar.Location = new System.Drawing.Point(6, 164);
+            this.btnGuardar.Location = new System.Drawing.Point(6, 184);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(448, 30);
             this.btnGuardar.TabIndex = 6;
@@ -173,6 +183,7 @@ namespace el_dt_by_menardi_y_tello
         private System.Windows.Forms.ComboBox cbEquipo;
         private System.Windows.Forms.Label lblPresupuesto;
         private System.Windows.Forms.TextBox tbPresupuesto;
+        private System.Windows.Forms.Label lblRestante;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.GroupBox gbJugadores;
         private System.Windows.Forms.DataGridView dgvJugadores;

@@ -28,7 +28,7 @@ namespace Dapper
             p.Add("UnFechaNacimiento", jugador.fecha_nacimiento);
             p.Add("UnCotizacion", jugador.cotizacion);
             p.Add("UnidTipo", jugador.id_tipo);
-            p.Add("UnidEquipo", jugador.id_equipo);
+            p.Add("UnidEquipo", jugador.Equipo);
 
             // Parámetro de salida (OUT)
             p.Add("AIidJugador", dbType: DbType.Int32, direction: ParameterDirection.Output); // AIidFutbolista -> AIidJugador

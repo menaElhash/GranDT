@@ -17,12 +17,14 @@ namespace el_dt_by_menardi_y_tello
         private int _plantillaId;
         private int _idEquipoSeleccionado;
         private Plantilla _plantillaActual;
+        private int _usuarioId;
 
-        public EditarPlantilla(int plantillaId, int idEquipo)
+        public EditarPlantilla(int plantillaId, int idEquipo, int usuarioId)
         {
             InitializeComponent();
             _plantillaId = plantillaId;
             _idEquipoSeleccionado = idEquipo;
+            _usuarioId = usuarioId;
             _conexion = DbConnection.GetConnection();
             _repoPlantilla = new RepoPlantilla(_conexion);
             _repoJugador = new RepoJugador(_conexion);
@@ -33,6 +35,27 @@ namespace el_dt_by_menardi_y_tello
             CargarEquipos();
             CargarPlantilla();
             CargarJugadoresEnPlantilla();
+
+            // Control de permisos: mostrar boton guardar solo si es admin
+            try
+            {
+                var usuario = _conexion.QueryFirstOrDefault<Usuario>("SELECT * FROM Gran_DT.Usuario WHERE id_usuario = @id", new { id = _usuarioId });
+                bool esAdmin = usuario != null && usuario.id_rol == 1;
+                btnGuardar.Visible = esAdmin;
+                // si no es admin, no permitir cambiar equipo o presupuesto
+                cbEquipo.Enabled = esAdmin;
+                tbPresupuesto.ReadOnly = !esAdmin;
+            }
+            catch
+            {
+                // Si no se puede determinar el rol, esconder guardar por seguridad
+                btnGuardar.Visible = false;
+                cbEquipo.Enabled = false;
+                tbPresupuesto.ReadOnly = true;
+            }
+
+            // Mostrar presupuesto restante al cargar
+            ActualizarRestanteUI();
         }
 
         private void CargarEquipos()
@@ -84,10 +107,29 @@ namespace el_dt_by_menardi_y_tello
                              WHERE pj.id_plantilla = @id";
                 var jugadores = _conexion.Query(query, new { id = _plantillaId }).ToList();
                 dgvJugadores.DataSource = jugadores;
+
+                ActualizarRestanteUI();
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error al cargar jugadores: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ActualizarRestanteUI()
+        {
+            try
+            {
+                if (_plantillaActual == null) return;
+                var totalSum = _conexion.QuerySingleOrDefault<decimal?>(@"SELECT COALESCE(SUM(j.cotizacion),0) FROM Gran_DT.PlantillaJugador pj
+                                                                           INNER JOIN Gran_DT.Jugador j ON pj.id_jugador = j.id_jugador
+                                                                           WHERE pj.id_plantilla = @id", new { id = _plantillaId }) ?? 0m;
+                var restante = _plantillaActual.presupuesto_max - totalSum;
+                lblRestante.Text = $"Restante: ${restante:N0}";
+            }
+            catch
+            {
+                lblRestante.Text = "Restante: -";
             }
         }
 
@@ -119,6 +161,10 @@ namespace el_dt_by_menardi_y_tello
                 });
                 
                 MessageBox.Show("Plantilla actualizada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // refrescar plantilla
+                _plantillaActual = _conexion.QuerySingleOrDefault<Plantilla>("SELECT * FROM Gran_DT.Plantilla WHERE id_plantilla = @id", new { id = _plantillaId });
+                ActualizarRestanteUI();
             }
             catch (Exception ex)
             {
@@ -134,12 +180,27 @@ namespace el_dt_by_menardi_y_tello
                 return;
             }
 
-            // Abrir formulario de selección de jugadores pasando el ID de la plantilla y el equipo
-            seleccion selForm = new seleccion(_plantillaId, _plantillaActual.id_equipo);
+            // Abrir formulario de selección de jugadores pasando el ID de la plantilla, el equipo y el presupuesto actual
+            seleccion selForm = new seleccion(_plantillaId, _plantillaActual.id_equipo, _plantillaActual.presupuesto_max);
             if (selForm.ShowDialog() == DialogResult.OK)
             {
                 // Recargar jugadores después de agregar uno
                 CargarJugadoresEnPlantilla();
+
+                // Calcular suma de cotizaciones y mostrar dinero restante
+                try
+                {
+                    var totalSum = _conexion.QuerySingleOrDefault<decimal?>(@"SELECT COALESCE(SUM(j.cotizacion),0) FROM Gran_DT.PlantillaJugador pj
+                                                                           INNER JOIN Gran_DT.Jugador j ON pj.id_jugador = j.id_jugador
+                                                                           WHERE pj.id_plantilla = @id", new { id = _plantillaId }) ?? 0m;
+                    var restante = _plantillaActual.presupuesto_max - totalSum;
+                    MessageBox.Show($"Dinero restante: ${restante:N0}", "Presupuesto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ActualizarRestanteUI();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al calcular presupuesto restante: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

@@ -19,6 +19,7 @@ namespace el_dt_by_menardi_y_tello
         private readonly IRepoJugador _repoJugador;
         private readonly IDbConnection _conexion;
         private int _usuarioId;
+        private List<Plantilla> _plantillas = new List<Plantilla>();
 
         public SeleccionarPlantilla() : this(0)
         {
@@ -50,12 +51,21 @@ namespace el_dt_by_menardi_y_tello
         {
             try
             {
-                var plantillas = _repoPlantilla.TraerPlantillasPorIdUsuario(_usuarioId).ToList();
-                if (plantillas.Count > 0)
+                _plantillas = _repoPlantilla.TraerPlantillasPorIdUsuario(_usuarioId).ToList();
+                if (_plantillas.Count > 0)
                 {
-                    cbPlantillas.DataSource = new BindingSource(plantillas, null);
-                    cbPlantillas.DisplayMember = "id_plantilla";
+                    // obtener nombres de equipos para mostrar en el combo
+                    var equipos = _repoJugador.TraerEquipo().ToList();
+                    var lista = _plantillas.Select(p => new
+                    {
+                        id_plantilla = p.id_plantilla,
+                        id_equipo = p.id_equipo,
+                        Nombre = $"Plantilla {p.id_plantilla} - { (equipos.FirstOrDefault(e => e.id_equipo == p.id_equipo)?.nombre ?? "Equipo") }"
+                    }).ToList();
+
+                    cbPlantillas.DisplayMember = "Nombre";
                     cbPlantillas.ValueMember = "id_plantilla";
+                    cbPlantillas.DataSource = lista;
                 }
                 else
                 {
@@ -85,14 +95,22 @@ namespace el_dt_by_menardi_y_tello
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-            if (cbPlantillas.SelectedItem == null)
+            if (cbPlantillas.SelectedValue == null)
             {
                 MessageBox.Show("Por favor selecciona una plantilla", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            var plantillaSeleccionada = (Plantilla)cbPlantillas.SelectedItem;
-            EditarPlantilla formEditar = new EditarPlantilla(plantillaSeleccionada.id_plantilla, plantillaSeleccionada.id_equipo);
+            int idPlantilla = Convert.ToInt32(cbPlantillas.SelectedValue);
+            var plantillaSeleccionada = _plantillas.FirstOrDefault(p => p.id_plantilla == idPlantilla);
+            if (plantillaSeleccionada == null)
+            {
+                MessageBox.Show("No se encontró la plantilla seleccionada.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // pasar usuarioId a EditarPlantilla para control de permisos
+            EditarPlantilla formEditar = new EditarPlantilla(plantillaSeleccionada.id_plantilla, plantillaSeleccionada.id_equipo, _usuarioId);
             formEditar.ShowDialog();
         }
     }

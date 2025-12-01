@@ -22,6 +22,7 @@ namespace el_dt_by_menardi_y_tello
         private readonly IRepoPlantilla _repoPlantilla;
         private readonly IRepoJugador _repoJugador;
         private readonly IDbConnection _conexion;
+        private decimal _presupuestoMax;
 
         private class TipoJugador
         {
@@ -29,15 +30,16 @@ namespace el_dt_by_menardi_y_tello
             public string nombre { get; set; }
         }
 
-        public seleccion() : this(0, 0)
+        public seleccion() : this(0, 0, 0)
         {
         }
 
-        public seleccion(int idPlantilla, int idEquipo)
+        public seleccion(int idPlantilla, int idEquipo, decimal presupuestoMax)
         {
             InitializeComponent();
             _idPlantilla = idPlantilla;
             _idEquipoActual = idEquipo;
+            _presupuestoMax = presupuestoMax;
             _conexion = DbConnection.GetConnection();
             _repoPlantilla = new RepoPlantilla(_conexion);
             _repoJugador = new RepoJugador(_conexion);
@@ -82,18 +84,15 @@ namespace el_dt_by_menardi_y_tello
         {
             try
             {
-                if (_idEquipoActual <= 0)
-                {
-                    MessageBox.Show("No se puede cargar jugadores: falta el equipo de la plantilla.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                jugadoresActuales = _repoJugador.TraerJugadoresBasicoXTipoXEquipo((uint)idTipoActual, (uint)_idEquipoActual).ToList();
+                // Cargar TODOS los jugadores de TODOS los equipos filtrando por tipo seleccionado
+                jugadoresActuales = _conexion.Query<Jugador>(
+                    "SELECT id_jugador, nombre, apellido, id_equipo, id_tipo, cotizacion FROM Gran_DT.Jugador WHERE id_tipo = @tipo",
+                    new { tipo = idTipoActual }).ToList();
 
                 // Cargar DataGrid
                 listadoJugadores.DataSource = jugadoresActuales;
 
-                // Cargar ComboBox de IDs
+                // Cargar ComboBox de jugadores con nombres legibles
                 CargarComboBoxJugadores();
             }
             catch (Exception ex)
@@ -106,7 +105,7 @@ namespace el_dt_by_menardi_y_tello
         {
             try
             {
-                var jugadoresCombo = jugadoresActuales.Select(j => new { id = j.id_jugador, nombre = $"ID: {j.id_jugador}" }).ToList();
+                var jugadoresCombo = jugadoresActuales.Select(j => new { id = j.id_jugador, nombre = $"{j.nombre} {j.apellido} (ID:{j.id_jugador})" }).ToList();
                 comboBoxJugadores.DataSource = jugadoresCombo;
                 comboBoxJugadores.DisplayMember = "nombre";
                 comboBoxJugadores.ValueMember = "id";
@@ -152,11 +151,25 @@ namespace el_dt_by_menardi_y_tello
 
                 if (jugadorSeleccionado != null)
                 {
+                    // verificar presupuesto: sumar cotizaciones actuales en plantilla
+                    var sumaActual = _conexion.QuerySingleOrDefault<decimal?>(@"SELECT COALESCE(SUM(j.cotizacion),0) FROM Gran_DT.PlantillaJugador pj
+                                                                        INNER JOIN Gran_DT.Jugador j ON pj.id_jugador = j.id_jugador
+                                                                        WHERE pj.id_plantilla = @id", new { id = _idPlantilla }) ?? 0m;
+
+                    var nuevaSuma = sumaActual + jugadorSeleccionado.cotizacion;
+
+                    if (nuevaSuma > _presupuestoMax)
+                    {
+                        MessageBox.Show($"No se puede agregar. La cotización del jugador supera el presupuesto. Presupuesto: ${_presupuestoMax:N0}, Suma actual + jugador: ${nuevaSuma:N0}", "Presupuesto excedido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
                     // Agregar el jugador a la plantilla (por defecto como suplente, se puede cambiar después)
                     _repoPlantilla.AltaJugadorEnPlantilla(idJugadorSeleccionado, _idPlantilla, esTitular: false);
-                    
-                    MessageBox.Show($"Jugador '{jugadorSeleccionado.nombre} {jugadorSeleccionado.apellido}' agregado a la plantilla.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    
+
+                    var restante = _presupuestoMax - nuevaSuma;
+                    MessageBox.Show($"Jugador '{jugadorSeleccionado.nombre} {jugadorSeleccionado.apellido}' agregado a la plantilla.\nDinero restante: ${restante:N0}", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                     // Cerrar el formulario para volver a EditarPlantilla
                     this.DialogResult = DialogResult.OK;
                     this.Close();

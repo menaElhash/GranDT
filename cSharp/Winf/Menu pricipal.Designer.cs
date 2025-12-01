@@ -42,12 +42,13 @@
             pictureBox1.Enabled = false;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.InitialImage = null;
-            pictureBox1.Location = new Point(-12, -1);
+            pictureBox1.Location = new Point(-4, -1);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(859, 482);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // button1
             // 
@@ -57,7 +58,7 @@
             button1.TabIndex = 1;
             button1.Text = "button1";
             button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            button1.Click += button1_Click_1;
             // 
             // button2
             // 
