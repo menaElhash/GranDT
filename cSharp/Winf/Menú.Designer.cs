@@ -48,6 +48,7 @@
             // Cerrar
             // 
             Cerrar.BackColor = Color.Transparent;
+            Cerrar.Cursor = Cursors.Hand;
             Cerrar.Image = (Image)resources.GetObject("Cerrar.Image");
             Cerrar.Location = new Point(12, 411);
             Cerrar.Name = "Cerrar";
@@ -60,6 +61,7 @@
             // Siguiente
             // 
             Siguiente.BackColor = Color.Transparent;
+            Siguiente.Cursor = Cursors.Hand;
             Siguiente.Image = (Image)resources.GetObject("Siguiente.Image");
             Siguiente.Location = new Point(638, 400);
             Siguiente.Name = "Siguiente";
@@ -72,6 +74,7 @@
             // pictureBox1
             // 
             pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.Cursor = Cursors.Hand;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(688, 150);
             pictureBox1.Name = "pictureBox1";

@@ -127,6 +127,7 @@
             // SigueitneBox
             // 
             SigueitneBox.BackColor = Color.Transparent;
+            SigueitneBox.Cursor = Cursors.Hand;
             SigueitneBox.Image = (Image)resources.GetObject("SigueitneBox.Image");
             SigueitneBox.Location = new Point(591, 384);
             SigueitneBox.Name = "SigueitneBox";
@@ -139,6 +140,7 @@
             // pictureBox3
             // 
             pictureBox3.BackColor = Color.Transparent;
+            pictureBox3.Cursor = Cursors.Hand;
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
             pictureBox3.Location = new Point(8, 395);
             pictureBox3.Name = "pictureBox3";

@@ -51,6 +51,7 @@
             checkBox1.AutoSize = true;
             checkBox1.Checked = true;
             checkBox1.CheckState = CheckState.Checked;
+            checkBox1.Cursor = Cursors.Hand;
             checkBox1.FlatAppearance.BorderSize = 4;
             checkBox1.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             checkBox1.Location = new Point(438, 118);
@@ -62,6 +63,7 @@
             // 
             // button1
             // 
+            button1.Cursor = Cursors.Hand;
             button1.Location = new Point(12, 406);
             button1.Name = "button1";
             button1.Size = new Size(212, 52);

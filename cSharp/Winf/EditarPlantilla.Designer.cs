@@ -64,7 +64,7 @@ namespace el_dt_by_menardi_y_tello
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(0, 174);
+            btnGuardar.Location = new Point(6, 178);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(448, 30);
             btnGuardar.TabIndex = 6;
@@ -75,25 +75,27 @@ namespace el_dt_by_menardi_y_tello
             // lblFechaCreacion
             // 
             lblFechaCreacion.AutoSize = true;
-            lblFechaCreacion.Location = new Point(98, 34);
+            lblFechaCreacion.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblFechaCreacion.Location = new Point(99, 29);
             lblFechaCreacion.Name = "lblFechaCreacion";
-            lblFechaCreacion.Size = new Size(65, 15);
+            lblFechaCreacion.Size = new Size(96, 21);
             lblFechaCreacion.TabIndex = 1;
             lblFechaCreacion.Text = "01/01/2025";
             // 
             // lblPlantillaId
             // 
             lblPlantillaId.AutoSize = true;
-            lblPlantillaId.Location = new Point(125, 10);
+            lblPlantillaId.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblPlantillaId.Location = new Point(125, 4);
             lblPlantillaId.Name = "lblPlantillaId";
-            lblPlantillaId.Size = new Size(13, 15);
+            lblPlantillaId.Size = new Size(23, 25);
             lblPlantillaId.TabIndex = 0;
             lblPlantillaId.Text = "0";
             lblPlantillaId.Click += lblPlantillaId_Click;
             // 
             // tbPresupuesto
             // 
-            tbPresupuesto.Location = new Point(5, 143);
+            tbPresupuesto.Location = new Point(11, 149);
             tbPresupuesto.Name = "tbPresupuesto";
             tbPresupuesto.Size = new Size(448, 23);
             tbPresupuesto.TabIndex = 5;
@@ -126,9 +128,12 @@ namespace el_dt_by_menardi_y_tello
             // lblRestante
             // 
             lblRestante.AutoSize = true;
-            lblRestante.Location = new Point(125, 146);
+            lblRestante.BackColor = Color.Transparent;
+            lblRestante.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblRestante.ForeColor = Color.White;
+            lblRestante.Location = new Point(335, 112);
             lblRestante.Name = "lblRestante";
-            lblRestante.Size = new Size(70, 15);
+            lblRestante.Size = new Size(102, 21);
             lblRestante.TabIndex = 7;
             lblRestante.Text = "Restante: $0";
             // 

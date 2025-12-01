@@ -52,6 +52,7 @@
             // 
             // button1
             // 
+            button1.Cursor = Cursors.Hand;
             button1.Location = new Point(144, 147);
             button1.Name = "button1";
             button1.Size = new Size(338, 53);
@@ -62,6 +63,7 @@
             // 
             // button2
             // 
+            button2.Cursor = Cursors.Hand;
             button2.Location = new Point(144, 224);
             button2.Name = "button2";
             button2.Size = new Size(338, 49);
@@ -72,6 +74,7 @@
             // 
             // button3
             // 
+            button3.Cursor = Cursors.Hand;
             button3.Location = new Point(144, 297);
             button3.Name = "button3";
             button3.Size = new Size(338, 49);
@@ -88,8 +91,8 @@
             ClientSize = new Size(828, 468);
             Controls.Add(pictureBox1);
             Controls.Add(button1);
-            Controls.Add(button3);
             Controls.Add(button2);
+            Controls.Add(button3);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             HelpButton = true;
             Name = "Menu_pricipal";

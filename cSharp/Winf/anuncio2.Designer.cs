@@ -48,6 +48,7 @@
             // 
             // button1
             // 
+            button1.Cursor = Cursors.Hand;
             button1.Location = new Point(266, 330);
             button1.Name = "button1";
             button1.Size = new Size(208, 41);
@@ -58,9 +59,10 @@
             // 
             // button2
             // 
+            button2.Cursor = Cursors.Hand;
             button2.Location = new Point(52, 330);
             button2.Name = "button2";
-            button2.Size = new Size(208, 41);
+            button2.Size = new Size(194, 41);
             button2.TabIndex = 1;
             button2.Text = "button1";
             button2.UseVisualStyleBackColor = true;
@@ -72,8 +74,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(pictureBox1);
-            Controls.Add(button2);
             Controls.Add(button1);
+            Controls.Add(button2);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "anuncio2";
             Text = "Gran DT";

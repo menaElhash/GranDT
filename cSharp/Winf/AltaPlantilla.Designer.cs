@@ -49,22 +49,26 @@
             // 
             // btnCrear
             // 
-            btnCrear.Location = new Point(438, 336);
+            btnCrear.Cursor = Cursors.Hand;
+            btnCrear.Location = new Point(520, 287);
             btnCrear.Name = "btnCrear";
             btnCrear.Size = new Size(200, 41);
             btnCrear.TabIndex = 1;
             btnCrear.Text = "Crear Plantilla";
             btnCrear.UseVisualStyleBackColor = true;
             btnCrear.Click += btnCrear_Click;
+            btnCrear.StyleChanged += btnCrear_Click;
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(168, 341);
+            btnCancelar.Cursor = Cursors.Hand;
+            btnCancelar.Location = new Point(138, 287);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(187, 30);
+            btnCancelar.Size = new Size(211, 36);
             btnCancelar.TabIndex = 2;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.FontChanged += btnCrear_Click;
             btnCancelar.Click += btnCancelar_Click;
             // 
             // lblEquipo
@@ -108,8 +112,8 @@
             Controls.Add(cbEquipo);
             Controls.Add(pictureBox1);
             Controls.Add(lblEquipo);
-            Controls.Add(btnCrear);
             Controls.Add(btnCancelar);
+            Controls.Add(btnCrear);
             Name = "AltaPlantilla";
             Text = "Gran DT";
             Load += AltaPlantilla_Load;

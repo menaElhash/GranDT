@@ -47,6 +47,7 @@
             // 
             // btnConfirmar
             // 
+            btnConfirmar.Cursor = Cursors.Hand;
             btnConfirmar.Location = new Point(515, 289);
             btnConfirmar.Name = "btnConfirmar";
             btnConfirmar.Size = new Size(203, 45);
@@ -57,6 +58,7 @@
             // 
             // btnCrear
             // 
+            btnCrear.Cursor = Cursors.Hand;
             btnCrear.Location = new Point(133, 289);
             btnCrear.Name = "btnCrear";
             btnCrear.Size = new Size(212, 37);

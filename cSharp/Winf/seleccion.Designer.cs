@@ -62,6 +62,7 @@
             comboBoxTipo.Size = new Size(200, 23);
             comboBoxTipo.TabIndex = 1;
             comboBoxTipo.SelectedIndexChanged += comboBoxTipo_SelectedIndexChanged;
+            comboBoxTipo.Click += buttonReiniciar_Click;
             // 
             // labelJugadores
             // 
@@ -103,6 +104,7 @@
             // 
             // buttonReiniciar
             // 
+            buttonReiniciar.Cursor = Cursors.Hand;
             buttonReiniciar.Location = new Point(384, 69);
             buttonReiniciar.Name = "buttonReiniciar";
             buttonReiniciar.Size = new Size(181, 30);
@@ -113,6 +115,7 @@
             // 
             // buttonAvanzar
             // 
+            buttonAvanzar.Cursor = Cursors.Hand;
             buttonAvanzar.Location = new Point(598, 444);
             buttonAvanzar.Name = "buttonAvanzar";
             buttonAvanzar.Size = new Size(193, 30);
@@ -123,6 +126,7 @@
             // 
             // buttonAtras
             // 
+            buttonAtras.Cursor = Cursors.Hand;
             buttonAtras.Location = new Point(12, 444);
             buttonAtras.Name = "buttonAtras";
             buttonAtras.Size = new Size(134, 30);
@@ -156,8 +160,8 @@
             Controls.Add(labelSeleccionar);
             Controls.Add(comboBoxJugadores);
             Controls.Add(pictureBox1);
-            Controls.Add(buttonAtras);
             Controls.Add(buttonAvanzar);
+            Controls.Add(buttonAtras);
             Controls.Add(buttonReiniciar);
             Name = "seleccion";
             Text = "Gran DT";
