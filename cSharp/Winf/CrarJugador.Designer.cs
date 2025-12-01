@@ -41,6 +41,8 @@
             button5 = new Button();
             button6 = new Button();
             pictureBox1 = new PictureBox();
+            comboBoxTipoJugador = new ComboBox();
+            comboBoxEquipo = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -90,12 +92,30 @@
             dateTimePicker1.Size = new Size(164, 39);
             dateTimePicker1.TabIndex = 4;
             // 
+            // comboBoxTipoJugador
+            // 
+            comboBoxTipoJugador.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxTipoJugador.FormattingEnabled = true;
+            comboBoxTipoJugador.Location = new Point(137, 210);
+            comboBoxTipoJugador.Name = "comboBoxTipoJugador";
+            comboBoxTipoJugador.Size = new Size(200, 23);
+            comboBoxTipoJugador.TabIndex = 5;
+            // 
+            // comboBoxEquipo
+            // 
+            comboBoxEquipo.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxEquipo.FormattingEnabled = true;
+            comboBoxEquipo.Location = new Point(137, 245);
+            comboBoxEquipo.Name = "comboBoxEquipo";
+            comboBoxEquipo.Size = new Size(200, 23);
+            comboBoxEquipo.TabIndex = 6;
+            // 
             // button1
             // 
             button1.Location = new Point(150, 223);
             button1.Name = "button1";
             button1.Size = new Size(71, 23);
-            button1.TabIndex = 5;
+            button1.TabIndex = 7;
             button1.Text = "button1";
             button1.UseVisualStyleBackColor = true;
             // 
@@ -104,7 +124,7 @@
             button2.Location = new Point(331, 223);
             button2.Name = "button2";
             button2.Size = new Size(71, 23);
-            button2.TabIndex = 6;
+            button2.TabIndex = 8;
             button2.Text = "button2";
             button2.UseVisualStyleBackColor = true;
             // 
@@ -113,7 +133,7 @@
             button3.Location = new Point(150, 278);
             button3.Name = "button3";
             button3.Size = new Size(71, 23);
-            button3.TabIndex = 7;
+            button3.TabIndex = 9;
             button3.Text = "button3";
             button3.UseVisualStyleBackColor = true;
             // 
@@ -122,7 +142,7 @@
             button4.Location = new Point(331, 278);
             button4.Name = "button4";
             button4.Size = new Size(71, 23);
-            button4.TabIndex = 8;
+            button4.TabIndex = 10;
             button4.Text = "button4";
             button4.UseVisualStyleBackColor = true;
             // 
@@ -131,8 +151,8 @@
             button5.Location = new Point(12, 490);
             button5.Name = "button5";
             button5.Size = new Size(95, 23);
-            button5.TabIndex = 9;
-            button5.Text = "button5";
+            button5.TabIndex = 11;
+            button5.Text = "Atras";
             button5.UseVisualStyleBackColor = true;
             button5.Click += Botonatras_Click;
             // 
@@ -141,9 +161,10 @@
             button6.Location = new Point(403, 490);
             button6.Name = "button6";
             button6.Size = new Size(104, 23);
-            button6.TabIndex = 10;
-            button6.Text = "button6";
+            button6.TabIndex = 12;
+            button6.Text = "Guardar";
             button6.UseVisualStyleBackColor = true;
+            // event wired in code-behind
             // 
             // pictureBox1
             // 
@@ -152,7 +173,7 @@
             pictureBox1.Location = new Point(-3, 0);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(528, 549);
-            pictureBox1.TabIndex = 11;
+            pictureBox1.TabIndex = 13;
             pictureBox1.TabStop = false;
             // 
             // CrarJugador
@@ -161,7 +182,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(519, 525);
+            Controls.Add(comboBoxEquipo);
+            Controls.Add(comboBoxTipoJugador);
             Controls.Add(button6);
+            Controls.Add(button5);
             Controls.Add(button4);
             Controls.Add(button3);
             Controls.Add(button2);
@@ -172,7 +196,6 @@
             Controls.Add(textBox2);
             Controls.Add(textBox1);
             Controls.Add(pictureBox1);
-            Controls.Add(button5);
             Name = "CrarJugador";
             Text = "CrarJugador";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -194,5 +217,7 @@
         private Button button5;
         private Button button6;
         private PictureBox pictureBox1;
+        private ComboBox comboBoxTipoJugador;
+        private ComboBox comboBoxEquipo;
     }
 }
