@@ -189,6 +189,11 @@ namespace el_dt_by_menardi_y_tello
         private void pictureBox1_Click(object sender, EventArgs e)
         {
         }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
