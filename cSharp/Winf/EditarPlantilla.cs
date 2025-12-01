@@ -85,8 +85,8 @@ namespace el_dt_by_menardi_y_tello
                 {
                     tbPresupuesto.Text = _plantillaActual.presupuesto_max.ToString();
                     cbEquipo.SelectedValue = _idEquipoSeleccionado;
-                    lblPlantillaId.Text = $"ID Plantilla: {_plantillaActual.id_plantilla}";
-                    lblFechaCreacion.Text = $"Creada: {_plantillaActual.fecha_creacion:dd/MM/yyyy}";
+                    lblPlantillaId.Text = $": {_plantillaActual.id_plantilla}";
+                    lblFechaCreacion.Text = $": {_plantillaActual.fecha_creacion:dd/MM/yyyy}";
                 }
             }
             catch (Exception ex)
