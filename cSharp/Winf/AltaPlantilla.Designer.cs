@@ -40,6 +40,7 @@
             // 
             // cbEquipo
             // 
+            cbEquipo.BackColor = Color.FromArgb(224, 224, 224);
             cbEquipo.FormattingEnabled = true;
             cbEquipo.Location = new Point(150, 168);
             cbEquipo.Name = "cbEquipo";
@@ -78,14 +79,17 @@
             // lblPresupuesto
             // 
             lblPresupuesto.AutoSize = true;
+            lblPresupuesto.BackColor = Color.FromArgb(224, 224, 224);
+            lblPresupuesto.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblPresupuesto.Location = new Point(150, 208);
             lblPresupuesto.Name = "lblPresupuesto";
-            lblPresupuesto.Size = new Size(138, 15);
+            lblPresupuesto.Size = new Size(310, 32);
             lblPresupuesto.TabIndex = 4;
-            lblPresupuesto.Text = "Presupuesto: $10,000,000";
+            lblPresupuesto.Text = "Presupuesto: $65.000.000";
             // 
             // pictureBox1
             // 
+            pictureBox1.BackColor = Color.Transparent;
             pictureBox1.Enabled = false;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(-1, -5);
@@ -107,7 +111,7 @@
             Controls.Add(btnCrear);
             Controls.Add(btnCancelar);
             Name = "AltaPlantilla";
-            Text = "Crear Nueva Plantilla";
+            Text = "Gran DT";
             Load += AltaPlantilla_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);

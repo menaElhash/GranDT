@@ -127,6 +127,7 @@
             // 
             PasswordBox.Location = new Point(134, 150);
             PasswordBox.Name = "PasswordBox";
+            PasswordBox.PasswordChar = '*';
             PasswordBox.Size = new Size(216, 23);
             PasswordBox.TabIndex = 12;
             PasswordBox.Click += textBox2_TextChanged;
@@ -135,6 +136,7 @@
             // 
             RepetirPasswordBox.Location = new Point(134, 206);
             RepetirPasswordBox.Name = "RepetirPasswordBox";
+            RepetirPasswordBox.PasswordChar = '*';
             RepetirPasswordBox.Size = new Size(216, 23);
             RepetirPasswordBox.TabIndex = 12;
             RepetirPasswordBox.Click += textBox2_TextChanged;

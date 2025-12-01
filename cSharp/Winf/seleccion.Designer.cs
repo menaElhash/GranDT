@@ -103,7 +103,7 @@
             // 
             // buttonReiniciar
             // 
-            buttonReiniciar.Location = new Point(385, 81);
+            buttonReiniciar.Location = new Point(384, 69);
             buttonReiniciar.Name = "buttonReiniciar";
             buttonReiniciar.Size = new Size(181, 30);
             buttonReiniciar.TabIndex = 6;
@@ -113,9 +113,9 @@
             // 
             // buttonAvanzar
             // 
-            buttonAvanzar.Location = new Point(605, 458);
+            buttonAvanzar.Location = new Point(598, 444);
             buttonAvanzar.Name = "buttonAvanzar";
-            buttonAvanzar.Size = new Size(175, 30);
+            buttonAvanzar.Size = new Size(193, 30);
             buttonAvanzar.TabIndex = 7;
             buttonAvanzar.Text = "Avanzar";
             buttonAvanzar.UseVisualStyleBackColor = true;
@@ -123,7 +123,7 @@
             // 
             // buttonAtras
             // 
-            buttonAtras.Location = new Point(12, 458);
+            buttonAtras.Location = new Point(12, 444);
             buttonAtras.Name = "buttonAtras";
             buttonAtras.Size = new Size(134, 30);
             buttonAtras.TabIndex = 8;
@@ -156,11 +156,11 @@
             Controls.Add(labelSeleccionar);
             Controls.Add(comboBoxJugadores);
             Controls.Add(pictureBox1);
-            Controls.Add(buttonReiniciar);
-            Controls.Add(buttonAvanzar);
             Controls.Add(buttonAtras);
+            Controls.Add(buttonAvanzar);
+            Controls.Add(buttonReiniciar);
             Name = "seleccion";
-            Text = "Selección de Jugadores";
+            Text = "Gran DT";
             Load += seleccion_Load;
             ((System.ComponentModel.ISupportInitialize)listadoJugadores).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

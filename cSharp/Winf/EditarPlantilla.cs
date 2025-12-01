@@ -153,13 +153,13 @@ namespace el_dt_by_menardi_y_tello
                 var query = @"UPDATE Gran_DT.Plantilla 
                             SET presupuesto_max = @presupuesto, id_equipo = @id_equipo 
                             WHERE id_plantilla = @id_plantilla";
-                _conexion.Execute(query, new 
-                { 
-                    presupuesto = presupuesto, 
+                _conexion.Execute(query, new
+                {
+                    presupuesto = presupuesto,
                     id_equipo = (int)cbEquipo.SelectedValue,
                     id_plantilla = _plantillaId
                 });
-                
+
                 MessageBox.Show("Plantilla actualizada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // refrescar plantilla
@@ -207,6 +207,11 @@ namespace el_dt_by_menardi_y_tello
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void lblPlantillaId_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

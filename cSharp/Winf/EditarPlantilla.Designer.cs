@@ -56,7 +56,7 @@ namespace el_dt_by_menardi_y_tello
             gbDatos.Controls.Add(cbEquipo);
             gbDatos.Controls.Add(lblEquipo);
             gbDatos.Controls.Add(lblRestante);
-            gbDatos.Location = new Point(36, 12);
+            gbDatos.Location = new Point(30, 24);
             gbDatos.Name = "gbDatos";
             gbDatos.Size = new Size(465, 241);
             gbDatos.TabIndex = 0;
@@ -64,7 +64,7 @@ namespace el_dt_by_menardi_y_tello
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(0, 186);
+            btnGuardar.Location = new Point(0, 174);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(448, 30);
             btnGuardar.TabIndex = 6;
@@ -75,7 +75,7 @@ namespace el_dt_by_menardi_y_tello
             // lblFechaCreacion
             // 
             lblFechaCreacion.AutoSize = true;
-            lblFechaCreacion.Location = new Point(88, 44);
+            lblFechaCreacion.Location = new Point(98, 34);
             lblFechaCreacion.Name = "lblFechaCreacion";
             lblFechaCreacion.Size = new Size(65, 15);
             lblFechaCreacion.TabIndex = 1;
@@ -84,15 +84,16 @@ namespace el_dt_by_menardi_y_tello
             // lblPlantillaId
             // 
             lblPlantillaId.AutoSize = true;
-            lblPlantillaId.Location = new Point(112, 19);
+            lblPlantillaId.Location = new Point(125, 10);
             lblPlantillaId.Name = "lblPlantillaId";
             lblPlantillaId.Size = new Size(13, 15);
             lblPlantillaId.TabIndex = 0;
             lblPlantillaId.Text = "0";
+            lblPlantillaId.Click += lblPlantillaId_Click;
             // 
             // tbPresupuesto
             // 
-            tbPresupuesto.Location = new Point(6, 157);
+            tbPresupuesto.Location = new Point(5, 143);
             tbPresupuesto.Name = "tbPresupuesto";
             tbPresupuesto.Size = new Size(448, 23);
             tbPresupuesto.TabIndex = 5;
@@ -109,7 +110,7 @@ namespace el_dt_by_menardi_y_tello
             // 
             cbEquipo.DropDownStyle = ComboBoxStyle.DropDownList;
             cbEquipo.FormattingEnabled = true;
-            cbEquipo.Location = new Point(6, 97);
+            cbEquipo.Location = new Point(5, 86);
             cbEquipo.Name = "cbEquipo";
             cbEquipo.Size = new Size(448, 23);
             cbEquipo.TabIndex = 3;
@@ -125,7 +126,7 @@ namespace el_dt_by_menardi_y_tello
             // lblRestante
             // 
             lblRestante.AutoSize = true;
-            lblRestante.Location = new Point(6, 160);
+            lblRestante.Location = new Point(125, 146);
             lblRestante.Name = "lblRestante";
             lblRestante.Size = new Size(70, 15);
             lblRestante.TabIndex = 7;
@@ -134,14 +135,14 @@ namespace el_dt_by_menardi_y_tello
             // dgvJugadores
             // 
             dgvJugadores.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvJugadores.Location = new Point(23, 25);
+            dgvJugadores.Location = new Point(10, 32);
             dgvJugadores.Name = "dgvJugadores";
-            dgvJugadores.Size = new Size(442, 188);
+            dgvJugadores.Size = new Size(442, 191);
             dgvJugadores.TabIndex = 0;
             // 
             // btnAgregarJugador
             // 
-            btnAgregarJugador.Location = new Point(23, 220);
+            btnAgregarJugador.Location = new Point(10, 229);
             btnAgregarJugador.Name = "btnAgregarJugador";
             btnAgregarJugador.Size = new Size(448, 26);
             btnAgregarJugador.TabIndex = 1;
@@ -151,7 +152,7 @@ namespace el_dt_by_menardi_y_tello
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(18, 252);
+            btnCancelar.Location = new Point(3, 261);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(460, 30);
             btnCancelar.TabIndex = 2;
@@ -165,9 +166,9 @@ namespace el_dt_by_menardi_y_tello
             gbJugadores.Controls.Add(btnCancelar);
             gbJugadores.Controls.Add(btnAgregarJugador);
             gbJugadores.Controls.Add(dgvJugadores);
-            gbJugadores.Location = new Point(12, 234);
+            gbJugadores.Location = new Point(26, 224);
             gbJugadores.Name = "gbJugadores";
-            gbJugadores.Size = new Size(489, 319);
+            gbJugadores.Size = new Size(469, 297);
             gbJugadores.TabIndex = 1;
             gbJugadores.TabStop = false;
             // 
@@ -176,11 +177,11 @@ namespace el_dt_by_menardi_y_tello
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            ClientSize = new Size(527, 528);
+            ClientSize = new Size(527, 520);
             Controls.Add(gbJugadores);
             Controls.Add(gbDatos);
             Name = "EditarPlantilla";
-            Text = "Editar Plantilla";
+            Text = "Gran DT";
             Load += EditarPlantilla_Load;
             gbDatos.ResumeLayout(false);
             gbDatos.PerformLayout();

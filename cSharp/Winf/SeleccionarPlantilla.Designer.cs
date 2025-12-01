@@ -40,16 +40,16 @@
             // cbPlantillas
             // 
             cbPlantillas.FormattingEnabled = true;
-            cbPlantillas.Location = new Point(150, 176);
+            cbPlantillas.Location = new Point(166, 179);
             cbPlantillas.Name = "cbPlantillas";
             cbPlantillas.Size = new Size(500, 23);
             cbPlantillas.TabIndex = 0;
             // 
             // btnConfirmar
             // 
-            btnConfirmar.Location = new Point(440, 337);
+            btnConfirmar.Location = new Point(515, 289);
             btnConfirmar.Name = "btnConfirmar";
-            btnConfirmar.Size = new Size(194, 45);
+            btnConfirmar.Size = new Size(203, 45);
             btnConfirmar.TabIndex = 1;
             btnConfirmar.Text = "Confirmar";
             btnConfirmar.UseVisualStyleBackColor = true;
@@ -57,9 +57,9 @@
             // 
             // btnCrear
             // 
-            btnCrear.Location = new Point(171, 344);
+            btnCrear.Location = new Point(133, 289);
             btnCrear.Name = "btnCrear";
-            btnCrear.Size = new Size(180, 30);
+            btnCrear.Size = new Size(212, 37);
             btnCrear.TabIndex = 2;
             btnCrear.Text = "Crear";
             btnCrear.UseVisualStyleBackColor = true;
@@ -87,16 +87,16 @@
             // 
             // SeleccionarPlantilla
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleDimensions = new SizeF(96F, 96F);
+            AutoScaleMode = AutoScaleMode.Dpi;
             ClientSize = new Size(800, 450);
             Controls.Add(cbPlantillas);
             Controls.Add(pictureBox1);
-            Controls.Add(lblTitulo);
-            Controls.Add(btnCrear);
             Controls.Add(btnConfirmar);
+            Controls.Add(btnCrear);
+            Controls.Add(lblTitulo);
             Name = "SeleccionarPlantilla";
-            Text = "Seleccionar Plantilla";
+            Text = "Gran DT";
             Load += SeleccionarPlantilla_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
